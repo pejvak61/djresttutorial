@@ -2,11 +2,14 @@
 Call `Snippet` models.
 """
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 
-from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    Class docstring
+    """
     snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
 
     class Meta:
