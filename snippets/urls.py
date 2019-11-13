@@ -14,7 +14,7 @@ urlpatterns = [
     path('users/<int:pk>/', views.UserDetail.as_view()),
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns += format_suffix_patterns(urlpatterns)
 urlpatterns += [
     path('api-auth/', include('rest_framework.urls')),
 ]
