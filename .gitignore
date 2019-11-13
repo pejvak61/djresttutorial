@@ -1,2 +1,2 @@
-snippets/__pycache__/
-tutorial/__pycache__/
+snippets/__pycache__/*
+tutorial/__pycache__/*
