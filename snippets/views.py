@@ -1,5 +1,5 @@
 """
-Rewriting our API using class-based views
+Rewriting our API using generic class-based views
 """
 
 # ================================
@@ -12,8 +12,6 @@ from snippets.serializers import UserSerializer
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 from snippets.permissions import IsOwnerOrReadOnly
-
-
 
 class SnippetList(generics.ListCreateAPIView):
     """
@@ -28,7 +26,6 @@ class SnippetList(generics.ListCreateAPIView):
         """
         serializer.save(owner=self.request.user)
 
-
 class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     snippet details
@@ -38,14 +35,12 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
-
 class UserList(generics.ListAPIView):
     """
     List of Users
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
 
 class UserDetail(generics.RetrieveAPIView):
     """
