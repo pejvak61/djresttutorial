@@ -1,5 +1,5 @@
 """
-Create Views
+Class-based views
 """
 # from django.shortcuts import render
 from django.http import Http404
