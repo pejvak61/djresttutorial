@@ -23,7 +23,7 @@ class TblUserAccountsSerializer(serializers.Serializer):
     """
     uid = serializers.IntegerField(read_only=True)
     username = serializers.CharField(required=True, max_length=20)
-    alias_username = serializers.CharField(required=False, allow_blank=True, max_length=20)
+    alias_username = serializers.CharField(required=False, max_length=20)
 
     def create(self, validated_data):
         """
@@ -47,9 +47,9 @@ class TblUserDetailsSerializer(serializers.Serializer):
     """
     detail_id = serializers.IntegerField(read_only=True)
     useraccount = serializers.IntegerField(read_only=True)
-    first_name = serializers.CharField(required=False, allow_blank=True, max_length=25)
-    last_name = serializers.CharField(required=False, allow_blank=True, max_length=45)
-    birthdate = serializers.DateField(required=False, allow_blank=True)
+    first_name = serializers.CharField(required=False, max_length=25)
+    last_name = serializers.CharField(required=False, max_length=45)
+    birthdate = serializers.DateField(required=False)
     record_time = serializers.DateTimeField()
     creator = serializers.IntegerField(read_only=True)
 
