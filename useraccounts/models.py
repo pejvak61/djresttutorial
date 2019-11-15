@@ -16,12 +16,14 @@ class TblUserAccounts(models.Model):
 
 class TblUserDetails(models.Model):
     detail_id = models.IntegerField(primary_key=True)
-    useraccount = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name=TblUserAccounts.uid)
+    useraccount = models.IntegerField()
+    # useraccount = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name='TblUserAccounts.uid')
     first_name = models.CharField(max_length=25, blank=True, null=True)
     last_name = models.CharField(max_length=45, blank=True, null=True)
     birthdate = models.DateTimeField(blank=True, null=True)
     record_time = models.DateTimeField()
-    creator = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name=TblUserAccounts.uid, db_column='creator')
+    creator = models.IntegerField()
+    # creator = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name='TblUserAccounts.uid', db_column='creator')
 
     class Meta:
         managed = False
@@ -31,11 +33,13 @@ class TblUserDetails(models.Model):
 
 class TblUserPassword(models.Model):
     id_password = models.AutoField(primary_key=True)
-    useraccount_id_pwd = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name=TblUserAccounts.uid, db_column='useraccount_id_pwd')
+    useraccount_id_pwd = models.IntegerField()
+    # useraccount_id_pwd = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name='TblUserAccounts.uid', db_column='useraccount_id_pwd')
     salt = models.CharField(max_length=200, blank=True, null=True)
     hash = models.CharField(max_length=200, blank=True, null=True)
     record_time = models.DateTimeField()
-    creator = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name=TblUserAccounts.uid, db_column='creator')
+    creator = models.IntegerField()
+    # creator = models.ForeignKey(TblUserAccounts, models.DO_NOTHING, related_name='TblUserAccounts.uid', db_column='creator')
 
     class Meta:
         managed = False
