@@ -1,8 +1,7 @@
 """
-Snippet Models!
+User accounts Models!
 """
 from django.db import models
-
 
 class TblUserAccounts(models.Model):
     uid = models.AutoField(primary_key=True)
