@@ -49,7 +49,7 @@ class TblUserDetailsSerializer(serializers.Serializer):
     useraccount = serializers.IntegerField(read_only=True)
     first_name = serializers.CharField(required=False, max_length=25)
     last_name = serializers.CharField(required=False, max_length=45)
-    birthdate = serializers.DateField(required=False)
+    birthdate = serializers.DateTimeField(required=False)
     record_time = serializers.DateTimeField()
     creator = serializers.IntegerField(read_only=True)
 
