@@ -6,12 +6,14 @@ Rewriting our API using generic class-based views
 # Using generic class-based views
 # ================================
 
+# pylint: disable=ungrouped-imports
+# pylint: disable=line-too-long
+
 from rest_framework import permissions, generics
 from django.contrib.auth.models import User
 from snippets.serializers import UserSerializer
 from useraccounts.models import TblUserAccounts, TblUserDetails, TblUserPassword
 from snippets.permissions import IsOwnerOrReadOnly
-# pylint: disable=line-too-long
 from useraccounts.serializers import TblUserAccountsSerializer, TblUserDetailsSerializer, TblUserPasswordSerializer
 
 
