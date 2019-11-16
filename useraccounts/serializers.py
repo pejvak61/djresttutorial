@@ -3,7 +3,7 @@ Call `UserAccounts` models.
 """
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
+from snippets.models import Snippet # , STYLE_CHOICES , LANGUAGE_CHOICES
 from useraccounts.models import TblUserAccounts, TblUserDetails, TblUserPassword
 
 
@@ -71,7 +71,7 @@ class TblUserDetailsSerializer(serializers.Serializer):
         instance.birthdate = validated_data.get('birthdate', instance.birthdate)
         instance.record_time = validated_data.get('record_time', instance.record_time)
         instance.creator = validated_data.get('creator', instance.creator)
-        
+
         instance.save()
         return instance
 
@@ -97,6 +97,7 @@ class TblUserPasswordSerializer(serializers.Serializer):
         Update and return an existing `TblUserPassword` instance, given the validated data.
         """
         instance.id_password = validated_data.get('id_password', instance.id_password)
+        # pylint: disable=line-too-long
         instance.useraccount_id_pwd = validated_data.get('useraccount_id_pwd', instance.useraccount_id_pwd)
         instance.salt = validated_data.get('salt', instance.salt)
         instance.hash = validated_data.get('hash', instance.hash)

@@ -10,9 +10,11 @@ from rest_framework import permissions, generics
 from django.contrib.auth.models import User
 from snippets.serializers import UserSerializer
 from useraccounts.models import TblUserAccounts, TblUserDetails, TblUserPassword
-from snippets.serializers import SnippetSerializer
 from snippets.permissions import IsOwnerOrReadOnly
+# pylint: disable=line-too-long
 from useraccounts.serializers import TblUserAccountsSerializer, TblUserDetailsSerializer, TblUserPasswordSerializer
+
+
 
 class CreateNewUser(generics.ListCreateAPIView):
     """
